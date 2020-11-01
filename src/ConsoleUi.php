@@ -1,7 +1,9 @@
 <?php
 
+// Static class responisble for the IO.
 class ConsoleUi
 {
+    // Asks user for a URL.
     static function requestURl($defaultUrl)
     {
         echo "Enter the server URL[default: $defaultUrl] (enter nothing for default):\n";
@@ -9,6 +11,7 @@ class ConsoleUi
         return readline();
     }
 
+    // Asks user to select a strategy from the ones given.
     static function requestStrategy($strategies)
     {
         echo "Enter number for corisponding strategy:\n";
@@ -33,12 +36,14 @@ class ConsoleUi
         }
     }
 
+    // Tells user a new game is being created.
     static function creatingNewGame()
     {
         echo "Creating a new game...\n";
     }
 
-    static function displayBoard($board)
+    // Displays the given game board to the user and where they placed their piece.
+    static function displayBoard($board, $slot)
     {
         for ($i=0; $i < sizeof($board); $i++) { 
             for ($j=0; $j < sizeof($board[$i]); $j++) { 
@@ -50,8 +55,24 @@ class ConsoleUi
             echo $i + 1 . "  ";
         }
         echo "\n";
+        if ($slot !== null)
+        {
+            for ($i=0; $i < sizeof($board); $i++) { 
+                if (intval($slot) === $i)
+                {
+                    echo "*";
+                break;
+                }
+                else
+                {
+                    echo "   ";
+                }
+            }
+            echo "\n";
+        }
     }
 
+    // Request a slot from the user.
     static function requestMove($width)
     {
         echo "Select a slot (1 - $width):\n"; 
@@ -69,6 +90,7 @@ class ConsoleUi
         }
     }
 
+    // Tell the user who won.
     static function acknowledgeWinner($isWin, $isCpuWin, $isDraw, $isCpuDraw)
     {
         if ($isWin === true)

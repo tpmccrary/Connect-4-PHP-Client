@@ -1,16 +1,24 @@
 <?php
+// Stores info from the server.
 class ServerInfo{
+    // The default URL to connect to.
     const defaultUrl = "https://cssrvlab01.utep.edu/Classes/cs3360/tpmccrary/C4Service/src";
 
+    // The url given from the user.
     public $givenUrl;
 
+    // The info from the server.
     public $info;
 
+    // The available strategies.
     public $strategies = array();
 
+    // The width of the game board.
     public $boardWidth;
+    // The height of the game board.
     public $boardHeight;
 
+    // Store the strategies from the server.
     public function storeStrategies($info)
     {
         $stratArray = $info->{'strategies'};
@@ -22,6 +30,7 @@ class ServerInfo{
         }
     }
 
+    // Stores the info about the board.
     public function storeBoardInfo($info)
     {
         $this->boardWidth = $info->{'width'};

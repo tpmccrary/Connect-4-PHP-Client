@@ -1,7 +1,10 @@
 <?php
 include "ResponseParser.php";
+
+// Static class that handles communication with the server.
 class NetworkHandler
 {
+    // Gets the server info.
     public static function getServerInfo($givenUrl, $defaultUrl)
     {
         // Request to server, @surpresses PHP Warning.
@@ -23,6 +26,7 @@ class NetworkHandler
 
     }
 
+    // Creates a new game givena  strategy and returns the new game info.
     public static function createNewGame($strat, $givenUrl, $defaultUrl)
     {
         // Request to server.
@@ -38,6 +42,7 @@ class NetworkHandler
         return $obj;
     }
 
+    // Makes a play and returns the play info.
     public static function makePlay($pid, $move, $givenUrl, $defaultUrl)
     {
         // Request to server.

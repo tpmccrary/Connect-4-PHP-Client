@@ -1,10 +1,15 @@
 <?php
 
+// Class that has info on the game board.
 class GameBoard
-{
+{   
+    // The width of the board.
     public $width;
+    
+    // The height of the board.
     public $height;
 
+    // The board itself, stored as a 2D array.
     public $board;
 
     function __construct($width, $height)
@@ -14,11 +19,13 @@ class GameBoard
         $this->createBoard();
     }
 
+    // Create a new, empty board.
     function createBoard()
     {
         $this->board = array_fill(0, $this->height, array_fill(0, $this->width, "."));
     }
 
+    // Update the board with given moves from the player and cpu.
     function updateBoard($playerSlot, $cpuSlot)
     {
         $placedPiece = false;
@@ -42,6 +49,7 @@ class GameBoard
         }
     }
 
+    // Highlight the winner given the winner positions.
     function highLightWinner($winPos)
     {
         for ($i=0; $i < sizeof($winPos); ($i+=2)) { 
