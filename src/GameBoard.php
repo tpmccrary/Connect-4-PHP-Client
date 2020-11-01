@@ -31,7 +31,7 @@ class GameBoard
             }
             if ($this->board[$i][$cpuSlot] == "." && $placedCpuPiece == false)
             {
-                $this->board[$i][$cpuSlot] = "0";
+                $this->board[$i][$cpuSlot] = "O";
                 $placedCpuPiece = true;
             }
 
@@ -39,6 +39,16 @@ class GameBoard
             {
                 return;
             }
+        }
+    }
+
+    function highLightWinner($winPos)
+    {
+        for ($i=0; $i < sizeof($winPos); ($i+=2)) { 
+            $col = $winPos[$i] . "   ";
+            $row = $winPos[$i + 1] . "\n";
+
+            $this->board[intval($row)][intval($col)] = "W";
         }
     }
 }

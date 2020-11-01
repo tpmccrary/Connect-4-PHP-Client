@@ -11,7 +11,7 @@ class ConsoleUi
 
     static function requestStrategy($strategies)
     {
-        echo "Enter number for corisponding strategy (default: 1):\n";
+        echo "Enter number for corisponding strategy:\n";
 
         for ($i=0; $i < sizeof($strategies); $i++) { 
             $strat = $strategies[$i];
@@ -68,4 +68,25 @@ class ConsoleUi
             return $slot - 1;
         }
     }
+
+    static function acknowledgeWinner($isWin, $isCpuWin, $isDraw, $isCpuDraw)
+    {
+        if ($isWin === true)
+        {
+            echo "You won, well done!!\n";
+        }
+        else if ($isCpuWin === true)
+        {
+            echo "You lost, better luck next time!\n";
+        }
+        else if($isDraw === true || $isCpuDraw === true)
+        {
+            echo "It's a draw!\n";
+        }
+        else
+        {
+            echo "????";
+        }
+    }
+    
 }

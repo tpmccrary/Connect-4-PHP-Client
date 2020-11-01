@@ -53,6 +53,15 @@ function mainGameLoop($game, $serverInfo)
         $cpuIsWin = $game->playInfo->{'move'}->{'isWin'};
 
         $game->gameBoard->updateBoard($game->playerMove, $game->playInfo->{'move'}->{'slot'});
-    }
+
+        // TODO: After win, acknowledge who won and highlight winning row.
+    }  
+
+    $game->gameBoard->highLightWinner($game->playInfo->{'ack_move'}->{'row'});
+    
+    ConsoleUi::displayBoard($game->gameBoard->board);
+    ConsoleUI::acknowledgeWinner($game->playInfo->{'ack_move'}->{'isWin'}, $game->playInfo->{'move'}->{'isWin'}, $game->playInfo->{'ack_move'}->{'isDraw'}, $game->playInfo->{'move'}->{'isDraw'});
+
+    
 }
 
