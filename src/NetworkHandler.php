@@ -1,4 +1,6 @@
 <?php
+// Author: Timothy P. McCrary
+
 include "ResponseParser.php";
 
 // Static class that handles communication with the server.

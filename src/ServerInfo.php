@@ -1,4 +1,6 @@
 <?php
+// Author: Timothy P. McCrary
+
 // Stores info from the server.
 class ServerInfo{
     // The default URL to connect to.

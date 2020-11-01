@@ -1,4 +1,6 @@
 <?php
+// Author: Timothy P. McCrary
+
 // Class that holds the game info.
 class GameInfo
 {

@@ -1,4 +1,5 @@
 <?php
+// Author: Timothy P. McCrary
 
 // Class that has info on the game board.
 class GameBoard

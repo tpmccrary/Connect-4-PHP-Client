@@ -1,4 +1,6 @@
 <?php
+// Author: Timothy P. McCrary
+
 include "ServerInfo.php";
 include "ConsoleUi.php";
 include "NetworkHandler.php";
@@ -64,7 +66,7 @@ function mainGameLoop($game, $serverInfo)
         // Update the game board.
         $game->gameBoard->updateBoard($game->playerMove, $game->playInfo->{'move'}->{'slot'});
     }  
-    
+
     // Checks who wins and shows the winning peices.
     if ($isWin === true)
     {

@@ -1,4 +1,5 @@
 <?php
+// Author: Timothy P. McCrary
 
 // Static class responisble for the IO.
 class ConsoleUi
