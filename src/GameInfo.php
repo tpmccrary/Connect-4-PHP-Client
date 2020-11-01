@@ -7,6 +7,10 @@ class GameInfo
 
     public $pid;
 
+    public $playerMove;
+
+    public $playInfo;
+
     function __construct($selectedStrat, $gameBoard, $pid)
     {
         $this->selectedStrat = $selectedStrat;

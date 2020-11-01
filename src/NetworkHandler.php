@@ -37,4 +37,19 @@ class NetworkHandler
 
         return $obj;
     }
+
+    public static function makePlay($pid, $move, $givenUrl, $defaultUrl)
+    {
+        // Request to server.
+        $xml = @file_get_contents($givenUrl . "/play/?pid=" . $pid . "&move=" . $move);
+
+        if ($xml === false)
+        {
+            $xml = @file_get_contents($defaultUrl . "/play/?pid=" . $pid . "&move=" . $move);
+        }
+
+        $obj = ResponseParser::parseInfO($xml);
+
+        return $obj;
+    }
 }

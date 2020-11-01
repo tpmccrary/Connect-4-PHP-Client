@@ -33,6 +33,11 @@ class ConsoleUi
         }
     }
 
+    static function creatingNewGame()
+    {
+        echo "Creating a new game...\n";
+    }
+
     static function displayBoard($board)
     {
         for ($i=0; $i < sizeof($board); $i++) { 
@@ -40,6 +45,27 @@ class ConsoleUi
                 echo $board[$i][$j] . "  ";
             }
             echo "\n";
+        }
+        for ($i=0; $i < sizeof($board) + 1; $i++) { 
+            echo $i + 1 . "  ";
+        }
+        echo "\n";
+    }
+
+    static function requestMove($width)
+    {
+        echo "Select a slot (1 - $width):\n"; 
+
+        $slot = readLine();
+
+        if ($slot < 1 || $slot > $width)
+        {
+            echo "Not a valid slot.";
+            return ConsoleUi::requestMove($width);
+        }
+        else
+        {
+            return $slot - 1;
         }
     }
 }
