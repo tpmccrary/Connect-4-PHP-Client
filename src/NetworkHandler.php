@@ -9,7 +9,7 @@ class NetworkHandler
 
         if ($xml === false)
         {
-            echo "Invalid URL.\nUsing defualt URL...\n";
+            echo "Invalid URL.\nUsing defualt URL...\n"; 
             $xml = file_get_contents($defaultUrl . "/info");
         }
 
@@ -21,5 +21,20 @@ class NetworkHandler
 
         return $obj;
 
+    }
+
+    public static function createNewGame($strat, $givenUrl, $defaultUrl)
+    {
+        // Request to server.
+        $xml = @file_get_contents($givenUrl . "/new/?strategy=" . $strat);
+
+        if ($xml === false)
+        {
+            $xml = file_get_contents($defaultUrl . "/new/?strategy=" . $strat);
+        }
+
+        $obj = ResponseParser::parseInfO($xml);
+
+        return $obj;
     }
 }

@@ -8,6 +8,9 @@ class ServerInfo{
 
     public $strategies = array();
 
+    public $boardWidth;
+    public $boardHeight;
+
     public function storeStrategies($info)
     {
         $stratArray = $info->{'strategies'};
@@ -17,6 +20,12 @@ class ServerInfo{
             $strat = $stratArray[$i];
             array_push($this->strategies, $strat);
         }
+    }
+
+    public function storeBoardInfo($info)
+    {
+        $this->boardWidth = $info->{'width'};
+        $this->boardHeight = $info->{'height'};
     }
     
 

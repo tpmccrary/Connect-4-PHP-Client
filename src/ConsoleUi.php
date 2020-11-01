@@ -18,5 +18,28 @@ class ConsoleUi
             $option = $i + 1;
             echo "$option. $strat\n";
         }
+
+        $choice = readLine();
+
+        if ($choice < 1 || $choice > sizeof($strategies))
+        {
+            echo "Not a valid choice.\n";
+            return ConsoleUi::requestStrategy($strategies);
+        }
+        else
+        {
+            $strat = $strategies[$choice - 1];
+            return $strat;
+        }
+    }
+
+    static function displayBoard($board)
+    {
+        for ($i=0; $i < sizeof($board); $i++) { 
+            for ($j=0; $j < sizeof($board[$i]); $j++) { 
+                echo $board[$i][$j] . "  ";
+            }
+            echo "\n";
+        }
     }
 }
